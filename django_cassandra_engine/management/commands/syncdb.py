@@ -55,7 +55,7 @@ class Command(SyncCommand):
         self.stdout.write('Creating keyspace %s..' % keyspace)
         create_keyspace(keyspace, **replication_opts)
         for app_name, app_models \
-                in connection.introspection.cql_models.iteritems():
+                in connection.introspection.cql_models.items():#iteritems():
 
             for model in app_models:
                 self.stdout.write('Syncing %s.%s' % (app_name, model.__name__))
